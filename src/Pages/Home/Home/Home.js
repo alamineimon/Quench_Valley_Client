@@ -1,10 +1,13 @@
 import React from 'react';
-import Banner from '../Banner/Banner';
+import Menu from '../../../components/Menu/Menu/Menu';
+import Slider from '../../../components/Sliders/Slider/Slider';
 
 
 const Home =(props) => {
     return (
         <div>
+            <Slider></Slider>
+            <Menu></Menu>
             {/* <Banner></Banner> */}
         </div>
     );

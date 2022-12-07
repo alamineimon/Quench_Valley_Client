@@ -6,25 +6,28 @@ const Navbar = (props) => {
   const menuItems = (
     <React.Fragment>
       <li className="hover:border-b-4 hover:ease-in-out hover:duration-300 hover:border-green-500 hover:border-solid">
-        <Link to="/">Home</Link>
+        <Link to="/">HOME</Link>
       </li>
       <li className="hover:border-b-4 hover:ease-in-out hover:duration-300 hover:border-green-500 hover:border-solid">
-        <Link to="/blogs">Blogs</Link>
+        <Link to="/blogs">ABOUT</Link>
       </li>
       <li className="hover:border-b-4 hover:ease-in-out hover:duration-300 hover:border-green-500 hover:border-solid">
-        <Link to="/services">Services</Link>
+        <Link to="/menu">MENU</Link>
       </li>
       <li className="hover:border-b-4 hover:ease-in-out hover:duration-300 hover:border-green-500 hover:border-solid">
-        <Link to="/services">Services</Link>
+        <Link to="/services">GELLARY</Link>
       </li>
       <li className="hover:border-b-4 hover:ease-in-out hover:duration-300 hover:border-green-500 hover:border-solid">
-        <Link to="/services">Services</Link>
+        <Link to="/services">BLOGS</Link>
+      </li>
+      <li className="hover:border-b-4 hover:ease-in-out hover:duration-300 hover:border-green-500 hover:border-solid">
+        <Link to="/services">SHOP</Link>
       </li>
     </React.Fragment>
   );
 
   return (
-<div className="navbar text-white bg-transparent">
+<div className="navbar text-white  bg-blue-600">
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">

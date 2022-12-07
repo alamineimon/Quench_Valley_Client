@@ -9,11 +9,10 @@ const Banner = () => {
         <div
         className="hero h-[500px]"
         style={{
-          backgroundImage: `url("https://i.ibb.co/jf75FjN/kawasaki-ninja-h2r-5.webp")`,
+          backgroundImage: `url("https://i.ibb.co/bJtF8hf/aditya-joshi-y-KC0gjd0f-UQ-unsplash.jpg")`,
         }}
         >
         <div className="hero-overlay bg-opacity-60">
-          <Navbar/>
 
         </div>
         <div className="hero-content text-center text-neutral-content">
