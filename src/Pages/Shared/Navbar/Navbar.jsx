@@ -51,34 +51,26 @@ const Navbar = (props) => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a href="/" className="menuItem">
-                HOME
+              <a href="/">
+                <Link to='/'>HOME</Link>
               </a>
             </li>
             <li>
-              <a href="#skills" className="menuItem">
-                ABOUT
-              </a>
+               <Link to='/about'> ABOUT</Link>
+
             </li>
             <li>
-              <a href="#projects" className="menuItem">
-                MENU
-              </a>
+                <Link to='/menu'>MENU</Link>
+
             </li>
             <li>
-              <a href="#blogs" className="menuItem">
-                GALLERY
-              </a>
+              <Link to='/gallery'> GALLERY</Link>
             </li>
             <li>
-              <a href="#aboutme" className="menuItem">
-                BLOG
-              </a>
+              <Link to='/blog'>BLOG</Link>
             </li>
             <li>
-              <a href="#contact" className="menuItem">
-                SHOP
-              </a>
+              <Link to='/shop'>SHOP</Link>
             </li>
           </ul>
         </div>
@@ -87,35 +79,27 @@ const Navbar = (props) => {
       <div className="navbar-center hidden lg:flex">
         <nav>
           <ul>
-            <li>
-              <a href="/" className="menuItem">
-                HOME
+          <li>
+              <a href="/">
+                <Link to='/'>HOME</Link>
               </a>
             </li>
             <li>
-              <a href="#skills" className="menuItem">
-                ABOUT
-              </a>
+               <Link to='/about'> ABOUT</Link>
+
             </li>
             <li>
-              <a href="#projects" className="menuItem">
-                MENU
-              </a>
+                <Link to='/menu'>MENU</Link>
+
             </li>
             <li>
-              <a href="#blogs" className="menuItem">
-                GALLERY
-              </a>
+              <Link to='/gallery'> GALLERY</Link>
             </li>
             <li>
-              <a href="#aboutme" className="menuItem">
-                BLOG
-              </a>
+              <Link to='/blog'>BLOG</Link>
             </li>
             <li>
-              <a href="#contact" className="menuItem">
-                SHOP
-              </a>
+              <Link to='/shop'>SHOP</Link>
             </li>
           </ul>
         </nav>

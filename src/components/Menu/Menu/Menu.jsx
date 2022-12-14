@@ -1,6 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import "./Menu.css";
+import NavMenu from "../NavMenu/NavMenu";
 
 const Menu = () => {
   return (
@@ -16,15 +15,8 @@ const Menu = () => {
           <div className="">
             <h1 className="text-3xl mt-6 text-bold text-white">Our Favrites</h1>
             <p className="mt-6">Discover Our Menu</p>
-            <div className=" bg-white mt-2 menu-nav h-[400px] w-full">
-              <ul>
-                <li><a href="/"><Link to='/'>BREACKFAST</Link></a></li>
-                <li><a href="/">DINNER</a></li>
-                <li><a href="/">DRINKS</a></li>
-                <li><a href="/">INDIAN FOOD</a></li>
-                <li><a href="/">ITALIAN FOOD</a></li>
-                <li><a href="/">VEGAN FOOD</a></li>
-              </ul>
+            <div className=" bg-white mt-2 text-yellow-600 menu-nav h-[400px] w-full">
+              <NavMenu></NavMenu>
             </div>
           </div>
         </div>
