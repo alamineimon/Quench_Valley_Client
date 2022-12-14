@@ -12,7 +12,19 @@ const sliderImage = [
     urls: "https://i.ibb.co/YN02c70/artem-beliaikin-TSS-1aqo-RXE-unsplash.jpg",
   },
   {
-    title: "DRINK ORANGE JUICE WITH ",
+    title: "DRINK ORANGE dfgdfbJUICE WITH ",
+    describe:
+      "Easyline is the Fimar brand created to create a range of simple, reliable, high quality products at the same time with a low price. It ranges from small appliances such as whisks, blenders, kettles, juicers, ",
+    urls: "https://i.ibb.co/WPJjfMS/brooke-lark-IDTEXXXf-S44-unsplash.jpg",
+  },
+  {
+    title: "DRINK ORANGEfgdf JUICE WITH ",
+    describe:
+      "Easyline is the Fimar brand created to create a range of simple, reliable, high quality products at the same time with a low price. It ranges from small appliances such as whisks, blenders, kettles, juicers, ",
+    urls: "https://i.ibb.co/WPJjfMS/brooke-lark-IDTEXXXf-S44-unsplash.jpg",
+  },
+  {
+    title: "DRINK ORANGE 56789JUICE WITH ",
     describe:
       "Easyline is the Fimar brand created to create a range of simple, reliable, high quality products at the same time with a low price. It ranges from small appliances such as whisks, blenders, kettles, juicers, ",
     urls: "https://i.ibb.co/WPJjfMS/brooke-lark-IDTEXXXf-S44-unsplash.jpg",

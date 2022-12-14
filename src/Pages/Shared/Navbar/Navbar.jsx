@@ -1,65 +1,137 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./Navbar.css";
 
 const Navbar = (props) => {
 
-  const menuItems = (
-    <React.Fragment>
-      <li className="hover:border-b-4 hover:ease-in-out hover:duration-300 hover:border-green-500 hover:border-solid">
-        <Link to="/">HOME</Link>
-      </li>
-      <li className="hover:border-b-4 hover:ease-in-out hover:duration-300 hover:border-green-500 hover:border-solid">
-        <Link to="/blogs">ABOUT</Link>
-      </li>
-      <li className="hover:border-b-4 hover:ease-in-out hover:duration-300 hover:border-green-500 hover:border-solid">
-        <Link to="/menu">MENU</Link>
-      </li>
-      <li className="hover:border-b-4 hover:ease-in-out hover:duration-300 hover:border-green-500 hover:border-solid">
-        <Link to="/services">GELLARY</Link>
-      </li>
-      <li className="hover:border-b-4 hover:ease-in-out hover:duration-300 hover:border-green-500 hover:border-solid">
-        <Link to="/services">BLOGS</Link>
-      </li>
-      <li className="hover:border-b-4 hover:ease-in-out hover:duration-300 hover:border-green-500 hover:border-solid">
-        <Link to="/services">SHOP</Link>
-      </li>
-    </React.Fragment>
-  );
+  // const menuItems = (
+  //   <React.Fragment>
+  //     <li className="hover:border-b-4 hover:ease-in-out hover:duration-300 hover:border-green-500 hover:border-solid">
+  //       <Link to="/">HOME</Link>
+  //     </li>
+  //     <li className="hover:border-b-4 hover:ease-in-out hover:duration-300 hover:border-green-500 hover:border-solid">
+  //       <Link to="/blogs">ABOUT</Link>
+  //     </li>
+  //     <li className="hover:border-b-4 hover:ease-in-out hover:duration-300 hover:border-green-500 hover:border-solid">
+  //       <Link to="/menu">MENU</Link>
+  //     </li>
+  //     <li className="hover:border-b-4 hover:ease-in-out hover:duration-300 hover:border-green-500 hover:border-solid">
+  //       <Link to="/services">GELLARY</Link>
+  //     </li>
+  //     <li className="hover:border-b-4 hover:ease-in-out hover:duration-300 hover:border-green-500 hover:border-solid">
+  //       <Link to="/services">BLOGS</Link>
+  //     </li>
+  //     <li className="hover:border-b-4 hover:ease-in-out hover:duration-300 hover:border-green-500 hover:border-solid">
+  //       <Link to="/services">SHOP</Link>
+  //     </li>
+  //   </React.Fragment>
+  // );
 
   return (
-<div className="navbar text-white  bg-blue-600">
-  <div className="navbar-start">
-    <div className="dropdown">
-      <label tabIndex={0} className="btn btn-ghost lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-      </label>
-      <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-        {
-          menuItems
-        }
-      </ul>
-    </div>
-    <img className="h-16 ml-4 mb-4" src="https://i.ibb.co/ZmRvQLn/logo.png" alt="" />
-  </div>
-  <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal p-0">
-      {
-        menuItems
-      }
-    </ul>
-  </div>
-  <div className="navbar-end">
-  <button className="btn btn-ghost btn-circle">
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-    </button>
-    <button className="btn btn-ghost btn-circle">
-      <div className="indicator">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
-        <span className="badge badge-xs badge-primary indicator-item"></span>
+    <div className="navbar px-12 fixed top-0  z-[999]">
+      <div className="navbar-start">
+        <div className="dropdown">
+          <label tabIndex={0} className="btn btn-ghost lg:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
+          </label>
+          <ul
+            tabIndex={0}
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+          >
+          <li>
+            <a href="/" className="menuItem">
+              HOME
+            </a>
+          </li>
+          <li>
+            <a href="#skills" className="menuItem">
+              ABOUT
+            </a>
+          </li>
+          <li>
+            <a href="#projects" className="menuItem">
+              MENU
+            </a>
+          </li>
+          <li>
+            <a href="#blogs" className="menuItem">
+              GALLERY
+            </a>
+          </li>
+          <li>
+            <a href="#aboutme" className="menuItem">
+              BLOG
+            </a>
+          </li>
+          <li>
+            <a href="#contact" className="menuItem">
+              SHOP
+            </a>
+          </li>
+          </ul>
+        </div>
+        <p className="text-3xl text-bold text-white ">Quench_Valley</p>
       </div>
-    </button>
-  </div>
-</div>
+      <div className="navbar-center hidden lg:flex">
+        <nav>
+        <ul>
+        <li>
+            <a href="/" className="menuItem">
+              HOME
+            </a>
+          </li>
+          <li>
+            <a href="#skills" className="menuItem">
+              ABOUT
+            </a>
+          </li>
+          <li>
+            <a href="#projects" className="menuItem">
+              MENU
+            </a>
+          </li>
+          <li>
+            <a href="#blogs" className="menuItem">
+              GALLERY
+            </a>
+          </li>
+          <li>
+            <a href="#aboutme" className="menuItem">
+              BLOG
+            </a>
+          </li>
+          <li>
+            <a href="#contact" className="menuItem">
+              SHOP
+            </a>
+          </li>
+        </ul>
+        </nav>
+      </div>
+      <div className="navbar-end lastNav">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.linkedin.com/in/eimonalamin/"
+          className=""
+        >
+          LOGIN
+        </a>
+      </div>
+    </div>
   );
 };
 

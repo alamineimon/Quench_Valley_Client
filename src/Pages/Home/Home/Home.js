@@ -1,14 +1,15 @@
 import React from 'react';
 import Menu from '../../../components/Menu/Menu/Menu';
-import Slider from '../../../components/Sliders/Slider/Slider';
+import Slide from '../../Slide/Slide';
+import Banner from '../Banner/Banner';
 
 
-const Home =(props) => {
+const Home =() => {
     return (
         <div>
-            <Slider></Slider>
+            <Banner></Banner>
+            <Slide></Slide>
             <Menu></Menu>
-            {/* <Banner></Banner> */}
         </div>
     );
 }

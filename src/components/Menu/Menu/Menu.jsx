@@ -16,7 +16,6 @@ const Menu = () => {
             <p>Discover Our Menu</p>
             <div className="bg-white h-[400px] w-full">
 
-            <p  className="text-blue-500">fgdfsdaytgvubdmkxytvubinjomxctyumiok,vybmiigbuvhdmkvdxyiok</p>
             </div>
           </div>
         </div>
