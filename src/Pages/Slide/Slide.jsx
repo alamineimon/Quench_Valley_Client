@@ -10,8 +10,7 @@ const Slide = () => {
           <p className="">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
             possimus, iure totam veniam nulla, autem nihil molestiae est minima
-            molestias beatae, modi tenetur atque nemo quis quas. Fugiat, ad
-            esse!
+            molestias beatae, modi tenetur atque nemo quis quas. Fugiat.
           </p>
           <div className="explor-lastNav mt-5">
               <a
