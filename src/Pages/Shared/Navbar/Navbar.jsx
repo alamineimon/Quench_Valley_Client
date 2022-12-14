@@ -27,7 +27,7 @@ const Navbar = (props) => {
   // );
 
   return (
-    <div className="navbar px-12  fixed top-0  z-[999]">
+    <div className="navbar bg-blue-400 px-12  fixed top-0  z-[999]">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -56,10 +56,6 @@ const Navbar = (props) => {
               </a>
             </li>
             <li>
-               <Link to='/about'> ABOUT</Link>
-
-            </li>
-            <li>
                 <Link to='/menu'>MENU</Link>
 
             </li>
@@ -67,10 +63,14 @@ const Navbar = (props) => {
               <Link to='/gallery'> GALLERY</Link>
             </li>
             <li>
+              <Link to='/shop'>SHOP</Link>
+            </li>
+            <li>
               <Link to='/blog'>BLOG</Link>
             </li>
             <li>
-              <Link to='/shop'>SHOP</Link>
+               <Link to='/about'> ABOUT</Link>
+
             </li>
           </ul>
         </div>
@@ -85,10 +85,6 @@ const Navbar = (props) => {
               </a>
             </li>
             <li>
-               <Link to='/about'> ABOUT</Link>
-
-            </li>
-            <li>
                 <Link to='/menu'>MENU</Link>
 
             </li>
@@ -96,10 +92,14 @@ const Navbar = (props) => {
               <Link to='/gallery'> GALLERY</Link>
             </li>
             <li>
+              <Link to='/shop'>SHOP</Link>
+            </li>
+            <li>
               <Link to='/blog'>BLOG</Link>
             </li>
             <li>
-              <Link to='/shop'>SHOP</Link>
+               <Link to='/about'> ABOUT</Link>
+
             </li>
           </ul>
         </nav>

@@ -1,11 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
-import Breackfast from "../../components/Menu/Breackfast/Breackfast";
-import Dinner from "../../components/Menu/Dinner/Dinner";
-import Drinks from "../../components/Menu/Drinks/Drinks";
-import IndianFood from "../../components/Menu/IndianFood/IndianFood";
-import ItalianFood from "../../components/Menu/ItalianFood/ItalianFood";
+import About from "../../components/About/About";
+import Blog from "../../components/Blog/Blog";
+import Gallery from "../../components/Gallery/Gallery";
 import Menu from "../../components/Menu/Menu/Menu";
-import VeganFood from "../../components/Menu/VeganFood/VeganFood";
+import Shop from "../../components/Shop/Shop";
 import Main from "../../Layout/Main/Main";
 import Home from "../../Pages/Home/Home/Home";
 import ErrorPage from "../../Pages/Shared/ErrorPage/ErrorPage";
@@ -25,28 +23,20 @@ const router = createBrowserRouter([
         element: <Menu />,
       },
       {
-        path: "/breackfast",
-        element: <Breackfast />,
+        path: "/about",
+        element: <About />,
       },
       {
-        path: "/dinner",
-        element: <Dinner />,
+        path: "/gallery",
+        element: <Gallery />,
       },
       {
-        path: "/drinks",
-        element: <Drinks />,
+        path: "/shop",
+        element: <Shop />,
       },
       {
-        path: "/indianFood",
-        element: <IndianFood />,
-      },
-      {
-        path: "/italianFood",
-        element: <ItalianFood />,
-      },
-      {
-        path: "/veganFood",
-        element: <VeganFood />,
+        path: "/blog",
+        element: <Blog />,
       }
     ]
   }

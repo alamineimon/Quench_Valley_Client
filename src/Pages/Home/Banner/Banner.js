@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../../Shared/Navbar/Navbar";
 import "../../Shared/Navbar/Navbar.css";
 
 const Banner = () => {
@@ -12,7 +11,7 @@ const Banner = () => {
         }}
       >
         <div className="hero-overlay bg-opacity-60">
-          <Navbar></Navbar>
+
         </div>
         <div className="hero-content text-center text-neutral-content">
           <div className="">
