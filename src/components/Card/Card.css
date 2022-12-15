@@ -1,0 +1,50 @@
+.card {
+    width:100%;
+    border-radius: 3px;
+    background: white;
+    
+}
+.card img{
+    width: 100%;
+    border-radius: 3px;
+}
+.card .content{
+    padding: 10px 20px 22px 24px;
+}
+.card .content .row ,
+.card .content .buttons{
+    display: flex;
+    justify-content: space-between;
+}
+.content .row .details span{
+    font-size: 22px;
+    font-weight: 500;
+}
+.content .row .details p{
+    color: steelblue;
+    font-size: 17px;
+    font-weight: 400;
+}
+.content .buttons{
+    margin-top: 20px;
+}
+.content .buttons button{
+    width: 100%;
+    padding: 10px 0;
+    font-size: 17px;
+    outline: none;
+    font-weight: 400;
+    border-radius: 3px;
+    border:  1px solid steelblue;
+    cursor: pointer;
+}
+.buttons button:first-child{
+    color: steelblue;
+    background: white;
+    margin-right: 10px;
+}
+.buttons button:last-child{
+    color: white;
+    background: steelblue;
+    margin-left: 10px;
+}
