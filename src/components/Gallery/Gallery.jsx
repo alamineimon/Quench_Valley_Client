@@ -12,6 +12,7 @@ const photos = [
   { src: "https://i.ibb.co/kyMPg0G/alex-munsell-Yr4n8-O-3-UPc-unsplash.jpg", width: 600, height: 900 },
 ];
 const Gallery = () =>  <div className='my-12'>
+  <p className='text-4xl uppercase text-bold text-center mb-6'>Our Photo Gallery</p>
   <PhotoAlbum layout="rows" photos={photos} />
 </div>
 

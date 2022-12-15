@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-
 const Navbar = (props) => {
   // const menuItems = (
   //   <React.Fragment>
@@ -105,13 +104,15 @@ const Navbar = (props) => {
         </nav>
       </div>
       <div className="navbar-end lastNav">
-        <a
+
+        <a 
           target="_blank"
           rel="noopener noreferrer"
           href="https://www.linkedin.com/in/eimonalamin/"
-          className=""
+          className=" flex"
+          
         >
-          LOGIN
+          LOGIN 
         </a>
       </div>
     </div>
