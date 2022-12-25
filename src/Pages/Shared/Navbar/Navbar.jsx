@@ -1,35 +1,51 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import PrimaryButton from "../../../components/Button/PrimaryButton";
+import React, { useContext } from "react";
+import { toast } from "react-hot-toast";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../context/AuthProvider";
 import "./Navbar.css";
 const Navbar = (props) => {
-  // const menuItems = (
-  //   <React.Fragment>
-  //     <li className="hover:border-b-4 hover:ease-in-out hover:duration-300 hover:border-green-500 hover:border-solid">
-  //       <Link to="/">HOME</Link>
-  //     </li>
-  //     <li className="hover:border-b-4 hover:ease-in-out hover:duration-300 hover:border-green-500 hover:border-solid">
-  //       <Link to="/blogs">ABOUT</Link>
-  //     </li>
-  //     <li className="hover:border-b-4 hover:ease-in-out hover:duration-300 hover:border-green-500 hover:border-solid">
-  //       <Link to="/menu">MENU</Link>
-  //     </li>
-  //     <li className="hover:border-b-4 hover:ease-in-out hover:duration-300 hover:border-green-500 hover:border-solid">
-  //       <Link to="/services">GELLARY</Link>
-  //     </li>
-  //     <li className="hover:border-b-4 hover:ease-in-out hover:duration-300 hover:border-green-500 hover:border-solid">
-  //       <Link to="/services">BLOGS</Link>
-  //     </li>
-  //     <li className="hover:border-b-4 hover:ease-in-out hover:duration-300 hover:border-green-500 hover:border-solid">
-  //       <Link to="/services">SHOP</Link>
-  //     </li>
-  //   </React.Fragment>
-  // );
+  const { user, logout } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout()
+      .then(() => {
+        toast("Logout successfully");
+        navigate("/");
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const menuItems = (
+    <nav>
+      <ul>
+        <li>
+          <Link to="/">HOME</Link>
+        </li>
+        <li>
+          <Link to="/shop">SHOP</Link>
+        </li>
+        <li>
+          <Link to="/menu">MENU</Link>
+        </li>
+        <li>
+          <Link to="/gallery">GELLARY</Link>
+        </li>
+        <li>
+          <Link to="/blog">BLOGS</Link>
+        </li>
+
+        <li>
+          <Link to="/about">ABOUT</Link>
+        </li>
+      </ul>
+    </nav>
+  );
 
   return (
-    <div className="navbar bg-blue-400 px-12  fixed top-0  z-[999]">
+    <div className="navbar bg-blue-400 px-12  fixed top-0  ">
       <div className="navbar-start">
-        <div className="dropdown">
+        {/* <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -71,11 +87,11 @@ const Navbar = (props) => {
               <Link to="/about"> ABOUT</Link>
             </li>
           </ul>
-        </div>
+        </div> */}
         <p className="text-3xl text-bold text-white ">Quench_Valley</p>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <nav>
+        {/* <nav>
           <ul>
             <li>
               <a href="/">
@@ -98,14 +114,38 @@ const Navbar = (props) => {
               <Link to="/about"> ABOUT</Link>
             </li>
           </ul>
-        </nav>
+        </nav> */}
+        {menuItems}
       </div>
       <div className="navbar-end lastNav">
-          <Link
-          to='/login'
-          >
-            LOGIN
-          </Link>
+        {user?.uid ? (
+          <>
+            <div
+              onClick={handleLogout}
+              title="LOGOUT"
+              className="flex avatarSection profile h-[50px] w-[200px] border-1 border-white"
+            >
+              <div className="avatar w-1/2">
+                <div className="w-[50px] rounded-full">
+                  <img
+                    src="https://i.ibb.co/ZmRvQLn/logo.png"
+                    alt="ProfileImage"
+                  />
+                </div>
+              </div>
+              <p className="-ml-11 mt-3 w-[150px] text-white text-bold">
+                {user?.displayName}
+              </p>
+            </div>
+            {/* <li>
+              <button onClick={handleLogout}>LOGOUT</button>
+            </li> */}
+          </>
+        ) : (
+          <li>
+            <Link to="/login">LOGIN</Link>
+          </li>
+        )}
       </div>
     </div>
   );

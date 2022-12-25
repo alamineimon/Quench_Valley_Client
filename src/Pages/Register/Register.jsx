@@ -1,16 +1,61 @@
 import React, { useContext } from "react";
+import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 import "./Registration.css";
 
 const Register = () => {
+  const { signInWithGoogle, updateUser, createUser } =
+    useContext(AuthContext);
+  // const { signupError, setSignupError } = useState("")
+  // const [createdUserEmail, setCreatedUserEmail] = useState('')
+
   const {
-    signInWithGoogle,
-  } = useContext(AuthContext);
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
+  const handleSignUp = (data) => {
+    createUser(data.email, data.password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        toast.success("User created successfully");
+        const userInfo = {
+          displayName: data.name,
+        };
+        updateUser(userInfo)
+          .then(() => {
+            saveUser(data.name, data.email);
+          })
+          .catch((err) => console.log(err));
+      })
+      .catch((err) => {
+        console.log(err);
+        // setSignupError(err.message)
+      });
+  };
+
+  const saveUser = (name, email) => {
+    const user = { name, email };
+    fetch(`http://localhost:5000/users`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        // setCreatedUserEmail(email)
+      });
+  };
+
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
-
   const gandleGoogleSignIn = () => {
     signInWithGoogle().then((result) => {
       console.log(result.user);
@@ -19,12 +64,13 @@ const Register = () => {
   };
 
   return (
-    <div className="flex justify-center items-center mt-12 pt-8">
-      <div className="flex flex-col max-w-md p-6  sm:p-10 border-2 border-blue-400 text-gray-900">
+    <div className="flex justify-center bg-blue-400 items-center pt-8">
+      <div className="flex flex-col bg-white max-w-md p-6  sm:p-10 border-2 border-blue-400 text-gray-900">
         <div className="mb-8 text-center">
-          <h1 className="my-3 text-4xl font-bold">REGISTRATION</h1>
+          <h1 className="my-3 text-4xl text-blue-400 font-bold">REGISTER</h1>
         </div>
         <form
+          onSubmit={handleSubmit(handleSignUp)}
           noValidate=""
           action=""
           className="space-y-12 ng-untouched ng-pristine ng-valid"
@@ -35,40 +81,51 @@ const Register = () => {
                 Name
               </label>
               <input
-                type="text"
-                name="name"
-                id="name"
-                required
+                {...register("name", { required: true })}
+                aria-invalid={errors.name ? "true" : "false"}
                 placeholder="Enter Your Name Here"
                 className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-blue-400 bg-gray-200 text-gray-900"
                 data-temp-mail-org="0"
               />
+              {errors.name?.type === "required" && (
+                <span className="text-red-500 text-sm" role="alert">
+                  Name is Required
+                </span>
+              )}
             </div>
-            <div>
+            {/* <div>
               <label htmlFor="image" className="block mb-2 text-sm">
                 Select Image:
               </label>
               <input
+              {...register("image", { required: true })} 
+              aria-invalid={errors.image ? "true" : "false"} 
                 type="file"
                 id="image"
                 name="image"
                 accept="image/*"
-                required
               />
-            </div>
+              {errors.image?.type === 'required' && <span className="text-red-500 text-sm"  role="alert">Photo is required</span>}
+            </div> */}
             <div>
               <label htmlFor="email" className="block mb-2 text-sm">
                 Email address
               </label>
               <input
-                required
+                {...register("email", {
+                  required: "Email Address is required",
+                })}
+                aria-invalid={errors.email ? "true" : "false"}
                 type="email"
-                name="email"
-                id="email"
                 placeholder="Enter Your Email Here"
                 className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-blue-400 bg-gray-200 text-gray-900"
                 data-temp-mail-org="0"
               />
+              {errors.email && (
+                <span className="text-red-500 text-sm" role="alert">
+                  {errors.email?.message}
+                </span>
+              )}
             </div>
             <div>
               <div className="flex justify-between mb-2">
@@ -77,20 +134,32 @@ const Register = () => {
                 </label>
               </div>
               <input
-                type="password"
-                name="password"
-                id="password"
-                required
+                {...register("password", {
+                  required: "Password is required",
+                  minLength: {
+                    value: 6,
+                    message: "Password must be 6 charecter or more",
+                  },
+                })}
+                aria-invalid={errors.password ? "true" : "false"}
                 placeholder="*******"
                 className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-200 focus:outline-blue-400 text-gray-900"
               />
+              {errors.password && (
+                <span className="text-red-500 text-sm" role="alert">
+                  {errors.password?.message}
+                </span>
+              )}
             </div>
           </div>
           <div className="space-y-2">
-            <div>
-              <div className="regiNav">
-                <Link to="/login">Registration</Link>
-              </div>
+            <div className="regiNav">
+              <input
+                type="submit"
+                value="REGISTER"
+                className="regiNav"
+                placeholder="REGISTER}"
+              />
             </div>
           </div>
         </form>
@@ -104,7 +173,10 @@ const Register = () => {
         <div className="flex justify-center space-x-4">
           <div className="regiNav">
             <button
-             aria-label="Log in with Google" className="p-3 rounded-sm">
+              onClick={gandleGoogleSignIn}
+              aria-label="Log in with Google"
+              className="p-3 rounded-sm"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 32 32"

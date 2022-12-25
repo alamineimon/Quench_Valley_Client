@@ -13,7 +13,7 @@ import BannerWith from '../Banner/BannerWith';
 const Home =() => {
     return (
         <div>
-            <BannerWith></BannerWith>
+            {/* <BannerWith></BannerWith> */}
             <Banner></Banner>
             {/* <Slider></Slider> */}
             <Slide></Slide>

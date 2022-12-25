@@ -1,5 +1,5 @@
 
-.loginNav a{
+.loginNav input{
     color: steelblue;
     text-decoration: none;
     padding: 10px 160px;
@@ -9,7 +9,7 @@
     border:  2px solid steelblue;
     transition: 1s;
 }
-.loginNav a:hover{
+.loginNav input:hover{
     color: white;
     background: steelblue;
 }

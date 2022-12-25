@@ -1,57 +1,120 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
-import PrimaryButton from "../../components/Button/PrimaryButton";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthProvider";
+import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 
 const Login = () => {
+  const {
+    signInWithGoogle,
+    signin
+  } = useContext(AuthContext);
+
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
+  const handleSignUp = (data) =>{
+    console.log(data);
+    signin(data.email, data.password)
+      .then((result) => {
+        const user = result.user;
+        toast('User login successfully')
+        console.log(user);
+      })
+      .catch((err) => {
+        console.error(err.message)
+      });
+  }
+
+
+  
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  const gandleGoogleSignIn = () => {
+    signInWithGoogle().then((result) => {
+      console.log(result.user);
+      navigate(from, { replace: true });
+    });
+  };
+
   return (
-    <div className="flex justify-center items-center mt-12 pt-8">
-      <div className="flex flex-col max-w-md p-6  sm:p-10 border-2 border-blue-400 text-gray-900">
+    <div className="flex justify-center bg-blue-400 items-center pt-8">
+      <div className="flex flex-col max-w-md p-6 bg-white sm:p-10 border-2 border-blue-400 text-gray-900">
         <div className="mb-10 text-center">
-          <h1 className="my-3 text-4xl font-bold">LOGIN</h1>
+          <h1 className="my-3 text-4xl text-blue-400 font-bold">LOGIN</h1>
         </div>
         <form
+        onSubmit={handleSubmit(handleSignUp)}
           noValidate=""
           action=""
           className="space-y-6 ng-untouched ng-pristine ng-valid"
         >
-          <div className="space-y-4 mb-4">
+          <div className="space-y-4">
             <div>
               <label htmlFor="email" className="block mb-2 text-sm">
                 Email address
               </label>
               <input
+                {...register("email", {
+                  required: "Email Address is required",
+                })}
+                aria-invalid={errors.email ? "true" : "false"}
                 type="email"
-                name="email"
-                id="email"
-                required
                 placeholder="Enter Your Email Here"
-                className="w-full px-3 py-2 border  border-gray-300 focus:outline-blue-400 bg-gray-200 text-gray-900"
+                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-blue-400 bg-gray-200 text-gray-900"
                 data-temp-mail-org="0"
               />
+              {errors.email && (
+                <span className="text-red-500 text-sm" role="alert">
+                  {errors.email?.message}
+                </span>
+              )}
             </div>
-            <div className="mb-12">
-              <div className="flex  justify-between">
-                <label htmlFor="password" className="text-sm mt-4 mb-2">
+            <div>
+              <div className="flex justify-between mb-2">
+                <label htmlFor="password" className="text-sm">
                   Password
                 </label>
               </div>
               <input
-                type="password"
-                name="password"
-                id="password"
-                required
+                {...register("password", {
+                  required: "Password is required",
+                  minLength: {
+                    value: 6,
+                    message: "Password must be 6 charecter or more",
+                  },
+                })}
+                aria-invalid={errors.password ? "true" : "false"}
                 placeholder="*******"
-                className="w-full px-3 py-2 border  border-gray-300 focus:outline-blue-400 bg-gray-200 text-gray-900"
+                className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-200 focus:outline-blue-400 text-gray-900"
+              />
+              {errors.password && (
+                <span className="text-red-500 text-sm" role="alert">
+                  {errors.password?.message}
+                </span>
+              )}
+            </div>
+          </div>
+          <div className="space-y-2">
+            <div className="loginNav">
+              <input
+                type="submit"
+                value="LOGIN"
+                className="loginNav"
+                placeholder="LOGIN}"
               />
             </div>
           </div>
-
-          <div className="">
+          {/* <div className="">
             <div className="loginNav">
-              <Link to="/login">LOGIN</Link>
+              <p>LOGIN</p>
             </div>
-          </div>
+          </div> */}
         </form>
         <div className="space-y-1">
           <button className="text-xs mt-6 hover:underline text-gray-400">
@@ -67,7 +130,9 @@ const Login = () => {
         </div>
         <div className="flex justify-center space-x-4">
         <div className="regiNav">
-            <button aria-label="Log in with Google" className="p-3 rounded-sm">
+            <button
+            onClick={gandleGoogleSignIn}
+             aria-label="Log in with Google" className="p-3 rounded-sm">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 32 32"

@@ -1,4 +1,4 @@
-.regiNav a{
+.regiNav input{
     color: steelblue;
     text-decoration: none;
     padding: 10px 130px;
@@ -8,8 +8,9 @@
     border:  2px solid steelblue;
     transition: 1s;
     margin-bottom: 20px;
+    cursor: pointer;
 }
-.regiNav a:hover{
+.regiNav input:hover{
     color: white;
     background: steelblue;
 }
