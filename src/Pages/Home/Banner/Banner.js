@@ -28,7 +28,7 @@ const Banner = () => {
                 href="https://www.linkedin.com/in/eimonalamin/"
                 className=""
               >
-                Explore
+                EXPLORE
               </a>
             </div>
           </div>

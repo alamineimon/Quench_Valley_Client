@@ -1,0 +1,14 @@
+
+.lastNav a{
+    color: white;
+    text-decoration: none;
+    padding: 5px 25px;
+    margin-right: 20px;
+    border:  2px solid white;
+    transition: 1s;
+}
+.lastNav a:hover{
+    color: steelblue;
+    background: white;
+}
+

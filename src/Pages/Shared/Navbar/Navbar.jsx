@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PrimaryButton from "../../../components/Button/PrimaryButton";
 import "./Navbar.css";
 const Navbar = (props) => {
   // const menuItems = (
@@ -51,25 +52,23 @@ const Navbar = (props) => {
           >
             <li>
               <a href="/">
-                <Link to='/'>HOME</Link>
+                <Link to="/">HOME</Link>
               </a>
             </li>
             <li>
-                <Link to='/menu'>MENU</Link>
-
+              <Link to="/menu">MENU</Link>
             </li>
             <li>
-              <Link to='/gallery'> GALLERY</Link>
+              <Link to="/gallery"> GALLERY</Link>
             </li>
             <li>
-              <Link to='/shop'>SHOP</Link>
+              <Link to="/shop">SHOP</Link>
             </li>
             <li>
-              <Link to='/blog'>BLOG</Link>
+              <Link to="/blog">BLOG</Link>
             </li>
             <li>
-               <Link to='/about'> ABOUT</Link>
-
+              <Link to="/about"> ABOUT</Link>
             </li>
           </ul>
         </div>
@@ -78,42 +77,35 @@ const Navbar = (props) => {
       <div className="navbar-center hidden lg:flex">
         <nav>
           <ul>
-          <li>
+            <li>
               <a href="/">
-                <Link to='/'>HOME</Link>
+                <Link to="/">HOME</Link>
               </a>
             </li>
             <li>
-                <Link to='/menu'>MENU</Link>
-
+              <Link to="/shop">SHOP</Link>
             </li>
             <li>
-              <Link to='/gallery'> GALLERY</Link>
+              <Link to="/gallery"> GALLERY</Link>
             </li>
             <li>
-              <Link to='/shop'>SHOP</Link>
+              <Link to="/menu">MENU</Link>
             </li>
             <li>
-              <Link to='/blog'>BLOG</Link>
+              <Link to="/blog">BLOG</Link>
             </li>
             <li>
-               <Link to='/about'> ABOUT</Link>
-
+              <Link to="/about"> ABOUT</Link>
             </li>
           </ul>
         </nav>
       </div>
       <div className="navbar-end lastNav">
-
-        <a 
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.linkedin.com/in/eimonalamin/"
-          className=" flex"
-          
-        >
-          LOGIN 
-        </a>
+          <Link
+          to='/login'
+          >
+            LOGIN
+          </Link>
       </div>
     </div>
   );

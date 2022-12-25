@@ -3,7 +3,7 @@ const sliderImage = [
     title: "Indian Breakfast Recipes",
     describe:
       "India is known for its unity amongst diversity, with so many different cultures from north to south, east to west, our food habits also vary from region to region.",
-    urls: "https://i.ibb.co/bJtF8hf/aditya-joshi-y-KC0gjd0f-UQ-unsplash.jpg",
+    urls: "https://i.ibb.co/6WJdVF6/farhad-ibrahimzade-u-G5jdjo-PKus-unsplash.jpg",
   },
   {
     title: "Homemade Hot Pockets",

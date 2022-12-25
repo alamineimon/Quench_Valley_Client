@@ -1,0 +1,15 @@
+
+.loginNav a{
+    color: steelblue;
+    text-decoration: none;
+    padding: 10px 160px;
+    margin-right: 20px;
+    width:100%;
+    margin: 30px 0;
+    border:  2px solid steelblue;
+    transition: 1s;
+}
+.loginNav a:hover{
+    color: white;
+    background: steelblue;
+}
