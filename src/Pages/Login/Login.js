@@ -41,7 +41,7 @@ const Login = () => {
     <div className="flex justify-center bg-blue-400 items-center pt-8">
       <div className="flex flex-col max-w-md p-6 bg-white  border-2 border-blue-400 text-gray-900">
         <div className="mb-10 text-center">
-          <h1 className="my-3 text-4xl text-blue-400 font-bold">LOGIN</h1>
+          <h1 className="my-3 text-4xl text-blue-400 pt-10 font-bold">LOGIN</h1>
         </div>
         <form
           onSubmit={handleSubmit(handleSignUp)}

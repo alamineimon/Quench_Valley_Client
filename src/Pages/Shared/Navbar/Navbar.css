@@ -44,17 +44,14 @@
 .user-pic img{
     border-radius: 50%;
 }
-.sub-menu-wrap{
+#sub-menu-wrap{
     position: absolute;
     top: 100%;
     right: 2%;
     width: 280px;
-    max-height: 440px;
+    max-height: 400px;
     overflow: hidden;
     transition: max-height 0.5s;
-}
-.sub-menu-wrap.open-menu{
-    max-height: 400px;
 }
 .sub-menu{
     background-color: steelblue;
@@ -89,7 +86,13 @@
     cursor: pointer;
     margin: 12px 0;
 }
-.sub-menu-link p{
+.sub-menu .link{
+    border: none;
+    display: flex;
+    width: 100%;
+    background-color: transparent;
+}
+sub-menu-link p{
     width: 100%;
 }
 .sub-menu-link:hover p{

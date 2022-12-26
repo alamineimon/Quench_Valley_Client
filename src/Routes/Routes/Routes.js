@@ -8,6 +8,7 @@ import Shop from "../../components/Shop/Shop";
 import Main from "../../Layout/Main/Main";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
+import Profile from "../../Pages/Profile/Profile";
 import Register from "../../Pages/Register/Register";
 import ErrorPage from "../../Pages/Shared/ErrorPage/ErrorPage";
 
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register/>,
+      },
+      {
+        path: "/profile",
+        element: <Profile/>,
       }
     ]
   }

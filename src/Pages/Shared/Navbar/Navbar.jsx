@@ -1,27 +1,13 @@
-import React, { useContext } from "react";
-import { toast } from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../../context/AuthProvider";
+import React, { useContext, useState } from "react";
+import { Link} from "react-router-dom";
 import "./Navbar.css";
-import { BsArrowBarRight, BsArrowRightShort } from "react-icons/bs";
+import { AuthContext } from "../../../context/AuthProvider";
+import ProfileDropdown from "./ProfileDropdown";
 
 const Navbar = (props) => {
-  const { user, logout } = useContext(AuthContext);
-  const navigate = useNavigate();
+  const { user} = useContext(AuthContext);
+  const [open, setOpen] = useState(false);
 
-  const handleLogout = () => {
-    logout()
-      .then(() => {
-        toast("Logout successfully");
-        navigate("/");
-      })
-      .catch((err) => console.log(err));
-  };
-
-  const toggleMenu = () =>{
-    console.log("clicked")
-    // subMenu.classlist.toggle("open-menu")
-  }
 
   const menuItems = (
     <nav>
@@ -98,44 +84,23 @@ const Navbar = (props) => {
         <p className="lg:text-3xl sm:text-md text-bold text-white ">Quench_Valley</p>
       </div>
       <div className="navbar-center hidden lg:flex">
-        {/* <nav>
-          <ul>
-            <li>
-              <a href="/">
-                <Link to="/">HOME</Link>
-              </a>
-            </li>
-            <li>
-              <Link to="/shop">SHOP</Link>
-            </li>
-            <li>
-              <Link to="/gallery"> GALLERY</Link>
-            </li>
-            <li>
-              <Link to="/menu">MENU</Link>
-            </li>
-            <li>
-              <Link to="/blog">BLOG</Link>
-            </li>
-            <li>
-              <Link to="/about"> ABOUT</Link>
-            </li>
-          </ul>
-        </nav> */}
+        
         {menuItems}
       </div>
       <div className="navbar-end lastNav">
         {user?.uid ? (
           <>
             <div>
-              <div className="user-pic">
+              <div
+              onClick={()=> setOpen(!open)}
+               className="user-pic">
                 <img
-                  onClick={toggleMenu}
                   src="https://i.ibb.co/bRZmT6x/blank-profile-picture-973460-340.webp"
                   alt=""
                 />
               </div>
-              <div className="sub-menu-wrap" id="subMenu">
+              {open && <ProfileDropdown></ProfileDropdown>}
+              {/* <div id="sub-menu-wrap">
                 <div className="sub-menu">
                   <div className="user-info">
                     <img
@@ -166,7 +131,7 @@ const Navbar = (props) => {
                     <span> <BsArrowRightShort></BsArrowRightShort></span>
                   </p>
                 </div>
-              </div>
+              </div> */}
             </div>
             {/* <li>
               <button onClick={handleLogout}>LOGOUT</button>
