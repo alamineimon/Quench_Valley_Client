@@ -1,23 +1,15 @@
 import React, { useContext } from "react";
+import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 import "./Profile.css";
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
+  console.log(user);
   const navigate = useNavigate();
 
-
-
-
-
-
-
-
-
-
-
-  const handleSubmit = (event) => {
+  const handleSubmit = (event, id) => {
     event.preventDefault();
     const form = event.target;
     const firstName = form.firstName.value;
@@ -50,34 +42,24 @@ const Profile = () => {
           phoneNumber,
           bio,
           photoUrl
-
         }
+        console.log(updateUser);
+        toast("Updatttttttttttttttttte")
+        // fetch(`http://localhost:5000/users${user.uid}`, {
+        //   method: "PUT",
+        //   headers: {
+        //     "content-type": "application/json",
+        //   },
+        //   body: JSON.stringify(updateUser)
+        // })
+        // .then((res) => res.json())
+        // .then(data => console.log(data))
 
       })
       .catch((err) => {
         console.log(err);
       });
   };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     // const handleCancel =()=>{
