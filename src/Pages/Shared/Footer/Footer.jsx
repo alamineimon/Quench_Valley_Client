@@ -5,7 +5,7 @@ const Footer = (props) => {
   return (
     <footer className="p-5 bg-blue-400 mx-auto">
       <div className="footer sm:block sm:justify-center lg:flex lg:justify-between">
-        <div className="1/4">
+        <div className="lg:w-1/4 sm:w-full">
           <div className="mt-12 text-center">
             <Link className="btn btn-ghost normal-case text-center">
               <img className="h-16 ml-4 mb-4" src="https://i.ibb.co/ZmRvQLn/logo.png" alt="" />
@@ -48,7 +48,7 @@ const Footer = (props) => {
             </div>
           </div>
         </div>
-        <div className="1/4">
+        <div className="lg:w-1/4 sm:w-full">
           <span className="footer-title">Services</span>
           <Link to="/" className="link link-hover">
             Branding
@@ -63,7 +63,7 @@ const Footer = (props) => {
             Advertisement
           </Link>
         </div>
-        <div className="1/4">
+        <div className="lg:w-1/4 sm:w-full">
           <span className="footer-title">Company</span>
           <Link to="/" className="link link-hover">
             About us
@@ -78,7 +78,7 @@ const Footer = (props) => {
             Press kit
           </Link>
         </div>
-        <div className="1/4">
+        <div className="lg:w-1/4 sm:w-full">
           <span className="footer-title">Legal</span>
           <Link to="/" className="link link-hover">
             Terms of use

@@ -3,6 +3,8 @@ import { toast } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider";
 import "./Navbar.css";
+import { BsArrowBarRight, BsArrowRightShort } from "react-icons/bs";
+
 const Navbar = (props) => {
   const { user, logout } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -15,6 +17,11 @@ const Navbar = (props) => {
       })
       .catch((err) => console.log(err));
   };
+
+  const toggleMenu = () =>{
+    console.log("clicked")
+    // subMenu.classlist.toggle("open-menu")
+  }
 
   const menuItems = (
     <nav>
@@ -43,9 +50,9 @@ const Navbar = (props) => {
   );
 
   return (
-    <div className="navbar bg-blue-400 px-12  fixed top-0  ">
+    <div className="navbar bg-blue-400 sm:px-8 fixed top-0  ">
       <div className="navbar-start">
-        {/* <div className="dropdown">
+        <div className="dropdown rounded-md">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -87,8 +94,8 @@ const Navbar = (props) => {
               <Link to="/about"> ABOUT</Link>
             </li>
           </ul>
-        </div> */}
-        <p className="text-3xl text-bold text-white ">Quench_Valley</p>
+        </div>
+        <p className="lg:text-3xl sm:text-md text-bold text-white ">Quench_Valley</p>
       </div>
       <div className="navbar-center hidden lg:flex">
         {/* <nav>
@@ -120,22 +127,46 @@ const Navbar = (props) => {
       <div className="navbar-end lastNav">
         {user?.uid ? (
           <>
-            <div
-              onClick={handleLogout}
-              title="LOGOUT"
-              className="flex avatarSection profile h-[50px] w-[200px] border-1 border-white"
-            >
-              <div className="avatar w-1/2">
-                <div className="w-[50px] rounded-full">
-                  <img
-                    src="https://i.ibb.co/ZmRvQLn/logo.png"
-                    alt="ProfileImage"
-                  />
+            <div>
+              <div className="user-pic">
+                <img
+                  onClick={toggleMenu}
+                  src="https://i.ibb.co/bRZmT6x/blank-profile-picture-973460-340.webp"
+                  alt=""
+                />
+              </div>
+              <div className="sub-menu-wrap" id="subMenu">
+                <div className="sub-menu">
+                  <div className="user-info">
+                    <img
+                      src="https://i.ibb.co/bRZmT6x/blank-profile-picture-973460-340.webp"
+                      alt=""
+                    />
+                    <p>{user?.displayName}</p>
+                  </div>
+                  <hr />
+                  <p className="sub-menu-link">
+                    <img src="https://i.ibb.co/cX6Z03G/profile.png" alt="" />
+                    <p>Edite Profile</p>
+                    <span> <BsArrowRightShort></BsArrowRightShort></span>
+                  </p>
+                  <p className="sub-menu-link">
+                    <img src="https://i.ibb.co/8B3pj1W/setting.png" alt="" />
+                    <p>Settings & Privacy</p>
+                    <span> <BsArrowRightShort></BsArrowRightShort></span>
+                  </p>
+                  <p className="sub-menu-link">
+                    <img src="https://i.ibb.co/myzpv5S/help.png" alt="" />
+                    <p>Helps & Support</p>
+                    <span> <BsArrowRightShort></BsArrowRightShort></span>
+                  </p>
+                  <p onClick={handleLogout} className="sub-menu-link">
+                    <img src="https://i.ibb.co/s335h1Y/logout.png" alt="" />
+                    <p>Logout</p>
+                    <span> <BsArrowRightShort></BsArrowRightShort></span>
+                  </p>
                 </div>
               </div>
-              <p className="-ml-11 mt-3 w-[150px] text-white text-bold">
-                {user?.displayName}
-              </p>
             </div>
             {/* <li>
               <button onClick={handleLogout}>LOGOUT</button>

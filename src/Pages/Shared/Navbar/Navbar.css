@@ -35,9 +35,100 @@
     color: white;
     background: steelblue;
 }
-.avatarSection{
+
+
+.user-pic{
+    width: 40px;
     cursor: pointer;
 }
+.user-pic img{
+    border-radius: 50%;
+}
+.sub-menu-wrap{
+    position: absolute;
+    top: 100%;
+    right: 2%;
+    width: 280px;
+    max-height: 440px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+.sub-menu-wrap.open-menu{
+    max-height: 400px;
+}
+.sub-menu{
+    background-color: steelblue;
+    padding: 20px;
+    margin: 10px;
+}
+.user-info{
+    display: flex;
+    align-items: center;
+}
+.user-info p{
+    color: white;
+    font-weight: 500;
+}
+.user-info img{
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+.sub-menu hr{
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background-color: white;
+    margin: 15px 0 10px;
+}
+.sub-menu-link{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    margin: 12px 0;
+}
+.sub-menu-link p{
+    width: 100%;
+}
+.sub-menu-link:hover p{
+    font-weight: 600;
+}
+.sub-menu-link img{
+    width: 40px;
+    background-color: white;
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 15px;
+}
+.sub-menu-link span{
+    font-size: 22px;
+    transition: 0.5s;
+}
+.sub-menu-link:hover span{
+    transform: translate(5px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 nav ul{
     float: 1;
     text-align: right;
@@ -69,16 +160,4 @@ nav li a::after{
 nav li a:hover::after{
     width: 100%;
 }
-
-.social-icons{
-    position: absolute;
-    right: 5%;
-    bottom: 8%;
-}
-.social-icons img{
-    width: 25px;
-    display: block;
-    margin: 25px 5px;
-}
-
 

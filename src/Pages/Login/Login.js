@@ -7,31 +7,26 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 
 const Login = () => {
-  const {
-    signInWithGoogle,
-    signin
-  } = useContext(AuthContext);
+  const { signInWithGoogle, signin } = useContext(AuthContext);
 
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const handleSignUp = (data) =>{
+  const handleSignUp = (data) => {
     console.log(data);
     signin(data.email, data.password)
       .then((result) => {
         const user = result.user;
-        toast('User login successfully')
+        toast("User login successfully");
         console.log(user);
       })
       .catch((err) => {
-        console.error(err.message)
+        console.error(err.message);
       });
-  }
+  };
 
-
-  
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -44,18 +39,18 @@ const Login = () => {
 
   return (
     <div className="flex justify-center bg-blue-400 items-center pt-8">
-      <div className="flex flex-col max-w-md p-6 bg-white sm:p-10 border-2 border-blue-400 text-gray-900">
+      <div className="flex flex-col max-w-md p-6 bg-white  border-2 border-blue-400 text-gray-900">
         <div className="mb-10 text-center">
           <h1 className="my-3 text-4xl text-blue-400 font-bold">LOGIN</h1>
         </div>
         <form
-        onSubmit={handleSubmit(handleSignUp)}
+          onSubmit={handleSubmit(handleSignUp)}
           noValidate=""
           action=""
           className="space-y-6 ng-untouched ng-pristine ng-valid"
         >
           <div className="space-y-4">
-            <div>
+            <div className="">
               <label htmlFor="email" className="block mb-2 text-sm">
                 Email address
               </label>
@@ -116,11 +111,11 @@ const Login = () => {
             </div>
           </div> */}
         </form>
-        <div className="space-y-1">
+        {/* <div className="space-y-1">
           <button className="text-xs mt-6 hover:underline text-gray-400">
             Forgot password?
           </button>
-        </div>
+        </div> */}
         <div className="flex items-center pt-4 space-x-1">
           <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
           <p className="px-3 text-sm dark:text-gray-400">
@@ -129,10 +124,12 @@ const Login = () => {
           <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
         </div>
         <div className="flex justify-center space-x-4">
-        <div className="regiNav">
+          <div className="regiNav">
             <button
-            onClick={gandleGoogleSignIn}
-             aria-label="Log in with Google" className="p-3 rounded-sm">
+              onClick={gandleGoogleSignIn}
+              aria-label="Log in with Google"
+              className="p-3 rounded-sm"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 32 32"
@@ -142,7 +139,6 @@ const Login = () => {
               </svg>
             </button>
           </div>
-          
         </div>
         <p className="px-6 text-sm text-center text-gray-400">
           Don't have an account yet?{" "}
