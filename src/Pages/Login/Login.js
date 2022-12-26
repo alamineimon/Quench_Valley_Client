@@ -14,12 +14,13 @@ const Login = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const handleSignUp = (data) => {
+  const handleSignIn = (data) => {
     console.log(data);
     signin(data.email, data.password)
       .then((result) => {
         const user = result.user;
         toast("User login successfully");
+        navigate(from, { replace: true });
         console.log(user);
       })
       .catch((err) => {
@@ -44,7 +45,7 @@ const Login = () => {
           <h1 className="my-3 text-4xl text-blue-400 pt-10 font-bold">LOGIN</h1>
         </div>
         <form
-          onSubmit={handleSubmit(handleSignUp)}
+          onSubmit={handleSubmit(handleSignIn)}
           noValidate=""
           action=""
           className="space-y-6 ng-untouched ng-pristine ng-valid"

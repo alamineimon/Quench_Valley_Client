@@ -2,11 +2,17 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Spinner from "../../Spinner/Spinner";
+import Breackfast from "../Breackfast/Breackfast";
+import Dinner from "../Dinner/Dinner";
+import Drinks from "../Drinks/Drinks";
 import NavMenu from "../NavMenu/NavMenu";
 import '../NavMenu/NavMenu.css'
 
 const Menu = () => {
-  const [menu, setMenu] = useState(null);
+  const [breack, setBreack] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [dinner, setDinner] = useState(false);
+  const [drinks, setDrinks] = useState(false);
 
   const {
     data: services = [],
@@ -41,24 +47,35 @@ const Menu = () => {
                 <div className="menu-nav px-40">
                   <ul>
                     <Link to=''>
-                    <li>
+                    <li
+                    onClick={()=> setOpen(!open)}
+                    >
                       <a href="#service">All</a>
                     </li>
                     </Link>
-                    <li>
+                    <li
+                    onClick={()=> setBreack(!breack)}
+                    >
                       <a href="#breackfast">BREACKFAST</a>
                     </li>
-                    <li>
+                    <li
+                    onClick={()=> setDinner(!dinner)}
+                    >
                       <a href="#dinner">DINNER</a>
                     </li>
-                    <li>
+                    <li
+                    onClick={()=> setDrinks(!drinks)}
+                    >
                       <a href="#drinks">DRINKS</a>
                     </li>
                   </ul>
                 </div>
               </div>
-            <div className=" bg-white mt-2 overflow-hidden px-6 text-black h-[400px] w-[750px]">
+            <div className=" bg-white mt-2 flex overflow-hidden px-6 text-black h-[400px] w-[750px]">
               <NavMenu></NavMenu>
+              {breack && <Breackfast></Breackfast>}
+              {dinner && <Dinner></Dinner>}
+              {drinks && <Drinks></Drinks>}
             </div>
           </div>
         </div>

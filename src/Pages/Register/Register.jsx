@@ -48,6 +48,7 @@ const Register = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        navigate(from, { replace: true });
         console.log(data);
         // setCreatedUserEmail(email)
       });

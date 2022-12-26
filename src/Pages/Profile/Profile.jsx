@@ -1,14 +1,98 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider";
 import "./Profile.css";
 
 const Profile = () => {
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+
+
+
+
+
+
+
+
+
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const firstName = form.firstName.value;
+    const lastName = form.lastName.value;
+    const email = form.email.value;
+    const phoneNumber = form.phoneNumber.value;
+    const bio = form.bio.value;
+    console.log(firstName, lastName , email , phoneNumber, bio )
+
+    //upload image in imgBB
+    const image = form.image.files[0];
+    console.log(image)
+    const formData = new FormData();
+    formData.append("image", image);
+    const url =
+      "https://api.imgbb.com/1/upload?key=8ab0829af0fdf06d333782b540e01bbb";
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        const photoUrl= data.data.display_url
+        console.log(photoUrl);
+
+        const updateUser = {
+          firstName,
+          lastName,
+          email,
+          phoneNumber,
+          bio,
+          photoUrl
+
+        }
+
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // const handleCancel =()=>{
+    //   process.form.rest()
+    //   navigate('/profile');
+    // }
+
   return (
     <div className=" mt-16 px-64 ">
       <div className=" p-10">
         <h1 className="text-3xl">Acount</h1>
-        <hr className="mt-6 mb-4" />
+        <hr className="mt-2 h-[2px] bg-blue-400 mb-4" />
 
         <form
+        onSubmit={handleSubmit}
           noValidate=""
           action=""
           className="space-y-12 px-12 ng-untouched ng-pristine ng-valid"
@@ -32,7 +116,7 @@ const Profile = () => {
                   id="image"
                   name="image"
                   accept="image/*"
-                  required
+                  
                 />
               </div>
             </div>
@@ -76,6 +160,8 @@ const Profile = () => {
                 required
                 type="email"
                 name="email"
+                readOnly
+                value={user?.email}
                 id="email"
                 placeholder="Enter Your Email Here"
                 className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-green-500 bg-gray-200 text-gray-900"
@@ -84,14 +170,14 @@ const Profile = () => {
             </div>
             <div>
               <div className="flex justify-between mb-2">
-                <label htmlFor="cellNumber" className="text-sm">
+                <label htmlFor="phoneNumber" className="text-sm">
                   Phone Number
                 </label>
               </div>
               <input
                 type="number"
-                name="cellNumber"
-                id="cellNumber"
+                name="phoneNumber"
+                id="phoneNumber"
                 required
                 placeholder="Enter Your Number Here"
                 className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-200 focus:outline-green-500 text-gray-900"
@@ -107,16 +193,17 @@ const Profile = () => {
                 type="text"
                 name="bio"
                 id="bio"
+                
                 required
                 placeholder="Enter Your Bio Here"
-                className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-200 focus:outline-green-500 text-gray-900"
+                className="w-full px-3 py-2 h-32 border rounded-md border-gray-300 bg-gray-200 focus:outline-green-500 text-gray-900"
               />
             </div>
           </div>
           <div className="space-y-2">
             <div className="buttons flex">
               <button className="update">Update</button>
-              <button className="cancel">Cancel</button>
+              {/* <button onClick={handleCancel} className="cancel">Cancel</button> */}
             </div>
           </div>
         </form>

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { toast } from "react-hot-toast";
 import { BsArrowRightShort } from "react-icons/bs";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider";
 import "./Navbar.css";
 
