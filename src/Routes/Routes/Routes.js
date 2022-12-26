@@ -6,6 +6,7 @@ import Menu from "../../components/Menu/Menu/Menu";
 import NavMenu from "../../components/Menu/NavMenu/NavMenu";
 import Shop from "../../components/Shop/Shop";
 import Main from "../../Layout/Main/Main";
+import BookATable from "../../Pages/BookATable/BookATable";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Profile from "../../Pages/Profile/Profile";
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile/>,
+      },
+      {
+        path: "/bookATable",
+        element: <BookATable/>,
       }
     ]
   }

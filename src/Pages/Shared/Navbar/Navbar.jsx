@@ -1,13 +1,12 @@
 import React, { useContext, useState } from "react";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 import { AuthContext } from "../../../context/AuthProvider";
 import ProfileDropdown from "./ProfileDropdown";
 
 const Navbar = (props) => {
-  const { user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [open, setOpen] = useState(false);
-
 
   const menuItems = (
     <nav>
@@ -81,23 +80,27 @@ const Navbar = (props) => {
             </li>
           </ul>
         </div>
-        <p className="lg:text-3xl sm:text-md text-bold text-white ">Quench_Valley</p>
+        <p className="lg:text-3xl sm:text-md text-bold text-white ">
+          Quench_Valley
+        </p>
       </div>
-      <div className="navbar-center hidden lg:flex">
-        
-        {menuItems}
-      </div>
+      <div className="navbar-center hidden lg:flex">{menuItems}</div>
       <div className="navbar-end lastNav">
+        <li>
+        </li>
         {user?.uid ? (
           <>
+          <Link to="/bookATable">BOOK A TABLE</Link>
             <div>
-              <div
-              onClick={()=> setOpen(!open)}
-               className="user-pic">
-                <img
-                  src="https://i.ibb.co/bRZmT6x/blank-profile-picture-973460-340.webp"
-                  alt=""
-                />
+              <div onClick={() => setOpen(!open)} className="user-pic">
+                {user?.photoURL ? (
+                  <img src={user?.photoURL} alt="" />
+                ) : (
+                  <img
+                    src="https://i.ibb.co/bRZmT6x/blank-profile-picture-973460-340.webp"
+                    alt=""
+                  />
+                )}
               </div>
               {open && <ProfileDropdown></ProfileDropdown>}
               {/* <div id="sub-menu-wrap">

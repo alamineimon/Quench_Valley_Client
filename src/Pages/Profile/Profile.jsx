@@ -83,11 +83,19 @@ const Profile = () => {
             <div className="flex items-center">
               <div className="flex mr-6 space-between">
                 <p className="text-xl mr-4 text-bold">Profile Picture</p>
-                <img
-                  className="rounded-full h-28"
-                  src="https://i.ibb.co/bRZmT6x/blank-profile-picture-973460-340.webp"
+                {user?.photoURL? <img
+                className="rounded-full h-28"
+                  src={user?.photoURL}
                   alt=""
                 />
+              :
+              <img
+              className="rounded-full h-28"
+                  src="https://i.ibb.co/bRZmT6x/blank-profile-picture-973460-340.webp"
+                  alt=""
+                  
+                />
+              }
               </div>
               <div>
                 <label htmlFor="image" className="block mb-2 text-sm">
