@@ -44,25 +44,6 @@ const NavMenu = () => {
       </div>
     ))}
   </div> 
-    // <div className="bg-white -mb-2" >
-    //   <div className="menu-nav px-40">
-    //     <ul>
-    //       <li>
-    //         <a href="#all">All</a>
-    //       </li>
-    //       <li>
-    //         <a href="#breackfast">BREACKFAST
-    //         </a>
-    //       </li>
-    //       <li>
-    //         <a href="#dinner">DINNER</a>
-    //       </li>
-    //       <li>
-    //         <a href="#drinks">DRINKS</a>
-    //       </li>
-    //     </ul>
-    //   </div>
-    // </div>
   );
 };
 

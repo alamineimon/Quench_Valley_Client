@@ -3,6 +3,7 @@ import { CiTimer, CiLocationOn } from "react-icons/ci";
 import { MdFastfood, MdEmojiFoodBeverage, MdFoodBank } from "react-icons/md";
 import { GiOpenedFoodCan } from "react-icons/gi";
 import "./Menu.css";
+import { Link } from "react-router-dom";
 
 const Menu = () => {
   // const {
@@ -26,7 +27,20 @@ const Menu = () => {
         Discover Our Menu
       </h1>
       <div className="lg:flex sm:block h-[630px] px-16 overflow-hidden">
-        <div className="w-1/2 menu"></div>
+        <div className="w-1/2 menu  p-6 text-white">
+          <div className="relative">
+            <p className="text-4xl absolute left-10 top-[200px] ">
+              Wellcome <br /> Quench_Valley
+            </p>
+
+            <p className="text-lg absolute left-10 leading-tight top-[300px]">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde possimus, iure totam veniam nulla, autem nihil  minima molestias molestiae est minima molestias beatae, modi tenetur atque nemo quis quas. Fugiat.
+            </p>
+            <Link to='/shop' className="absolute left-10 uppercase top-[390px]  text-center hover:bg-white border border-blue-400 hover:text-blue-400 font-semibold  py-3 px-4 rounded leading-tight text-white bg-blue-400 hover:border-blue-400 mt-5">
+            Explore menu
+          </Link>
+          </div>
+        </div>
         <div className="w-1/2 flex flex-col gap-2 bg-blue-600 px-3 py-3">
           <div className="flex h-[145px]">
             <div className="w-[200px]">
