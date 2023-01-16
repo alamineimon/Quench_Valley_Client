@@ -4,7 +4,7 @@ import './About.css'
 
 const About = () => {
   return (
-    <div className='h-[700px] bg-slate-800 text-white flex items-center justify-center '>
+    <div className='h-[600px] mb-16 bg-slate-800 text-white flex items-center justify-center '>
         <div className='w-1/2 text-center justify-center items-center'>
           <p className='uppercase'>About Us</p>
           <p className='uppercase text-2xl mb-3'>Quench_Valley</p>

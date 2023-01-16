@@ -41,7 +41,7 @@ const Menu = () => {
           </Link>
           </div>
         </div>
-        <div className="w-1/2 flex flex-col gap-2 bg-blue-600 px-3 py-3">
+        <div className="w-1/2 flex flex-col gap-2 px-3">
           <div className="flex h-[145px]">
             <div className="w-[200px]">
               <img

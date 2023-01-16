@@ -16,10 +16,13 @@ const Shop = () => {
     return <Spinner></Spinner>;
   }
   return (
-    <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 mt-16 px-20">
-      {services.map((service) => (
-        <Card key={service._id} service={service}></Card>
-      ))}
+    <div>
+      <p className="text-center text-4xl uppercase">All Your Food Here</p>
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 mt-6 px-10">
+        {services.map((service) => (
+          <Card key={service._id} service={service}></Card>
+        ))}
+      </div>
     </div>
   );
 };
