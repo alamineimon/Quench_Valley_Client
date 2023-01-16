@@ -1,81 +1,147 @@
-import { useQuery } from "@tanstack/react-query";
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import Spinner from "../../Spinner/Spinner";
-import Breackfast from "../Breackfast/Breackfast";
-import Dinner from "../Dinner/Dinner";
-import Drinks from "../Drinks/Drinks";
-import NavMenu from "../NavMenu/NavMenu";
-import '../NavMenu/NavMenu.css'
+import React from "react";
+import { CiTimer, CiLocationOn } from "react-icons/ci";
+import { MdFastfood, MdEmojiFoodBeverage, MdFoodBank } from "react-icons/md";
+import { GiOpenedFoodCan } from "react-icons/gi";
+import "./Menu.css";
 
 const Menu = () => {
-  const [breack, setBreack] = useState(false);
-  const [open, setOpen] = useState(false);
-  const [dinner, setDinner] = useState(false);
-  const [drinks, setDrinks] = useState(false);
-
-  const {
-    data: services = [],
-    isLoading,
-    refetch,
-  } = useQuery({
-    queryKey: ["products"],
-    queryFn: async () => {
-      const res = await fetch("http://localhost:5000/services");
-      const data = res.json();
-      return data;
-    },
-  });
-  if (isLoading) {
-    return <Spinner></Spinner>;
-  }
+  // const {
+  //   data: services = [],
+  //   isLoading,
+  //   refetch,
+  // } = useQuery({
+  //   queryKey: ["products"],
+  //   queryFn: async () => {
+  //     const res = await fetch("http://localhost:5000/services");
+  //     const data = res.json();
+  //     return data;
+  //   },
+  // });
+  // if (isLoading) {
+  //   return <Spinner></Spinner>;
+  // }
   return (
-    <div>
-      <div
-        className="hero h-[600px]"
-        style={{
-          backgroundImage: `url("https://i.ibb.co/kyMPg0G/alex-munsell-Yr4n8-O-3-UPc-unsplash.jpg")`,
-        }}
-      >
-        <div className="hero-overlay bg-opacity-60"></div>
-        <div className=" text-center text-neutral-content">
-          <div className="">
-            <h1 className="text-3xl mt-6 text-bold text-white">Our Favrites</h1>
-            <p className="mt-6">Discover Our Menu</p>
-            {/* <NavMenu></NavMenu> */}
-              <div className="bg-white -mb-2">
-                <div className="menu-nav px-40">
-                  <ul>
-                    <Link to=''>
-                    <li
-                    onClick={()=> setOpen(!open)}
-                    >
-                      <a href="#service">All</a>
-                    </li>
-                    </Link>
-                    <li
-                    onClick={()=> setBreack(!breack)}
-                    >
-                      <a href="#breackfast">BREACKFAST</a>
-                    </li>
-                    <li
-                    onClick={()=> setDinner(!dinner)}
-                    >
-                      <a href="#dinner">DINNER</a>
-                    </li>
-                    <li
-                    onClick={()=> setDrinks(!drinks)}
-                    >
-                      <a href="#drinks">DRINKS</a>
-                    </li>
-                  </ul>
-                </div>
+    <div className="">
+      <h1 className="text-3xl text-center mb-10 text-bold text-blue-400">
+        Discover Our Menu
+      </h1>
+      <div className="lg:flex sm:block h-[630px] px-16 overflow-hidden">
+        <div className="w-1/2 menu"></div>
+        <div className="w-1/2 flex flex-col gap-2 bg-blue-600 px-3 py-3">
+          <div className="flex h-[145px]">
+            <div className="w-[200px]">
+              <img
+                className="h-[145px]"
+                src="https://i.ibb.co/0D5t6Y0/madeline-tallman-m5oypz13kkc-unsplash.jpg"
+                alt=""
+              />
+            </div>
+            <div className=" bg-blue-400 px-6 text-white py-2 w-full">
+              <p className="text-xl ">Breackfast</p>
+              <p>
+                Ratings : <span className="text-yellow-400">5 Star</span>
+              </p>
+              <div className="flex items-center">
+                <CiLocationOn></CiLocationOn>
+                <p className="ml-3"> Location : </p>
+                <span className="text-sm ml-1">Mirpur-10</span>
               </div>
-            <div className=" bg-white mt-2 flex overflow-hidden px-6 text-black h-[400px] w-[750px]">
-              <NavMenu></NavMenu>
-              {breack && <Breackfast></Breackfast>}
-              {dinner && <Dinner></Dinner>}
-              {drinks && <Drinks></Drinks>}
+              <div className="flex items-center">
+                <MdEmojiFoodBeverage></MdEmojiFoodBeverage>
+                <p className="ml-3"> Breackfast </p>
+              </div>
+              <div className="flex items-center">
+                <CiTimer></CiTimer>
+                <p className="ml-3"> Today : </p>
+                <span className="text-sm ml-1">10PM-12PM</span>
+              </div>
+            </div>
+          </div>
+          <div className="flex h-[145px]">
+            <div className="w-[200px]">
+              <img
+                className="h-[145px]"
+                src="https://i.ibb.co/dpGY6Tm/eaters-collective-ESmxug33-C0c-unsplash.jpg"
+                alt=""
+              />
+            </div>
+            <div className=" bg-blue-400 px-6 text-white py-2 w-full">
+              <p className="text-xl ">Dinner</p>
+              <p>
+                Ratings : <span className="text-yellow-400">4.5 Star</span>
+              </p>
+              <div className="flex items-center">
+                <CiLocationOn></CiLocationOn>
+                <p className="ml-3"> Location : </p>
+                <span className="text-sm ml-1">Dhanmondi-32</span>
+              </div>
+              <div className="flex items-center">
+                <MdFoodBank></MdFoodBank>
+                <p className="ml-3"> Dinner </p>
+              </div>
+              <div className="flex items-center">
+                <CiTimer></CiTimer>
+                <p className="ml-3"> Today : </p>
+                <span className="text-sm ml-1">07PM-09PM</span>
+              </div>
+            </div>
+          </div>
+          <div className="flex h-[145px]">
+            <div className="w-[200px]">
+              <img
+                className="h-[145px]"
+                src="https://i.ibb.co/NNxYTcg/soo-ji-choi-ju1-D228la2-E-unsplash.jpg"
+                alt=""
+              />
+            </div>
+            <div className=" bg-blue-400 px-6 text-white py-2 w-full">
+              <p className="text-xl ">Drinks</p>
+              <p>
+                Ratings : <span className="text-yellow-400">4.5 Star</span>
+              </p>
+              <div className="flex items-center">
+                <CiLocationOn></CiLocationOn>
+                <p className="ml-3"> Location : </p>
+                <span className="text-sm ml-1">Kolabagan</span>
+              </div>
+              <div className="flex items-center">
+                <MdFastfood></MdFastfood>
+                <p className="ml-3"> Drinks </p>
+              </div>
+              <div className="flex items-center">
+                <CiTimer></CiTimer>
+                <p className="ml-3"> Today : </p>
+                <span className="text-sm ml-1">03PM-05PM</span>
+              </div>
+            </div>
+          </div>
+          <div className="flex h-[145px]">
+            <div className="w-[200px]">
+              <img
+                className="h-[145px]"
+                src="https://i.ibb.co/KF3TGMq/sina-piryae-b-Bzj-Wth-Tqb8-unsplash.jpg"
+                alt=""
+              />
+            </div>
+            <div className=" bg-blue-400 px-6 text-white py-2 w-full">
+              <p className="text-xl ">Vegan Food</p>
+              <p>
+                Ratings : <span className="text-yellow-400">5 Star</span>
+              </p>
+              <div className="flex items-center">
+                <CiLocationOn></CiLocationOn>
+                <p className="ml-3"> Location : </p>
+                <span className="text-sm ml-1">Jhenaidah</span>
+              </div>
+              <div className="flex items-center">
+                <GiOpenedFoodCan></GiOpenedFoodCan>
+                <p className="ml-3"> Vegan </p>
+              </div>
+              <div className="flex items-center">
+                <CiTimer></CiTimer>
+                <p className="ml-3"> Today : </p>
+                <span className="text-sm ml-1">9AM-10AM</span>
+              </div>
             </div>
           </div>
         </div>

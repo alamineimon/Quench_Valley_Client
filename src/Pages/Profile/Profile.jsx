@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
-import "./Profile.css";
+
 
 const Profile = () => {
   const { user } = useContext(AuthContext);

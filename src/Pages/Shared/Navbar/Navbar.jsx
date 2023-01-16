@@ -35,7 +35,7 @@ const Navbar = (props) => {
   );
 
   return (
-    <div className="navbar bg-blue-400 sm:px-8 fixed top-0  ">
+    <div className="navbar bg-blue-400 sm:px-8  ">
       <div className="navbar-start">
         <div className="dropdown rounded-md">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
