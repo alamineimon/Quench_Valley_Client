@@ -1,9 +1,13 @@
 import React, { useContext } from "react";
 import { toast } from "react-hot-toast";
 import { BsArrowRightShort } from "react-icons/bs";
-import { Link, useNavigate } from "react-router-dom";
+import { MdOutlineSpaceDashboard, MdOutlineHelpOutline } from "react-icons/md";
+import { RxAvatar } from "react-icons/rx";
+import { RiSettingsLine } from "react-icons/ri";
+import { FiLogOut } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider";
-import './Navbar.css'
+import "./Navbar.css";
 
 const ProfileDropdown = () => {
   const { user, logout } = useContext(AuthContext);
@@ -22,41 +26,40 @@ const ProfileDropdown = () => {
     <div id="sub-menu-wrap">
       <div className="sub-menu">
         <div className="user-info">
-        {user?.photoURL? <img
-                  src={user?.photoURL}
-                  alt=""
-                />
-              :
-              <img
-                  src="https://i.ibb.co/bRZmT6x/blank-profile-picture-973460-340.webp"
-                  alt=""
-                />
-              }
+          {user?.photoURL ? (
+            <img src={user?.photoURL} alt="" />
+          ) : (
+            <img
+              src="https://i.ibb.co/bRZmT6x/blank-profile-picture-973460-340.webp"
+              alt=""
+            />
+          )}
           <div>
-
-          <p>{user?.displayName}</p>
-          <p className="text-sm">{user?.email}</p>
+            <p>{user?.displayName}</p>
+            <p className="text-sm">{user?.email}</p>
           </div>
         </div>
         <hr />
 
         <p className="sub-menu-links">
-          <img src="https://i.ibb.co/cX6Z03G/profile.png" alt="" />
-          
-          <h2>
-          <Link to='/profile'>
-            Edite Profile
-          
-          </Link>
-            </h2>
+          <MdOutlineSpaceDashboard className="text-4xl mr-2"></MdOutlineSpaceDashboard>
+          <h2>Dashboard</h2>
           <span>
-            {" "}
+            <BsArrowRightShort></BsArrowRightShort>
+          </span>
+        </p>
+        <p className="sub-menu-links">
+          <RxAvatar className="text-4xl mr-2"></RxAvatar>
+
+          <h2>Edite Profile</h2>
+          <span>
             <BsArrowRightShort></BsArrowRightShort>
           </span>
         </p>
 
         <p className="sub-menu-links">
-          <img src="https://i.ibb.co/8B3pj1W/setting.png" alt="" />
+          <RiSettingsLine className="text-4xl mr-2"></RiSettingsLine>
+
           <p>Settings & Privacy</p>
           <span>
             {" "}
@@ -64,7 +67,8 @@ const ProfileDropdown = () => {
           </span>
         </p>
         <p className="sub-menu-links">
-          <img src="https://i.ibb.co/myzpv5S/help.png" alt="" />
+          <MdOutlineHelpOutline className="text-4xl mr-2"></MdOutlineHelpOutline>
+
           <p>Helps & Support</p>
           <span>
             {" "}
@@ -72,7 +76,7 @@ const ProfileDropdown = () => {
           </span>
         </p>
         <p onClick={handleLogout} className="sub-menu-links">
-          <img src="https://i.ibb.co/s335h1Y/logout.png" alt="" />
+          <FiLogOut className="text-4xl mr-2"></FiLogOut>
           <p>Logout</p>
           <span>
             {" "}
